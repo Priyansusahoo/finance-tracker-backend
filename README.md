@@ -1,7 +1,9 @@
-[POSTMAN COLLECTION](https://raw.githubusercontent.com/Priyansusahoo/finance-tracker-backend/refs/heads/master/FinTrackerApp.postman_collection.json)
+## IMPORT this Collection in Postman:
+[POSTMAN COLLECTION](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/FinTrackerApp.postman_collection.json)
 
+[POSTMAN ENVIRONMENT](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/Local.postman_environment.json)
 
-### SETUP
+### Project SETUP
 
 ```properties
 PORT=5000

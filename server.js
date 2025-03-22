@@ -10,4 +10,6 @@ connectDB()
     process.exit(1);
   });
 
-module.exports = app;
+module.exports = (req, res) => {
+  app(req, res); // Export the app as a handler for Vercel
+};

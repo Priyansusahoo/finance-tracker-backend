@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "04129d3b-086f-4a33-ad7c-3a490090f77e",
+		"name": "FinTrackerApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24024650",
+		"_collection_link": "https://haoshoku-haki-593415.postman.co/workspace/My-Workspace~3b6dd0ee-8f21-4e56-84c0-84259ff994e0/collection/24024650-04129d3b-086f-4a33-ad7c-3a490090f77e?action=share&source=collection_link&creator=24024650"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "authenticated",
+					"item": [
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "Get User Profile (logged-In User)",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/users/profile",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"users",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user register",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"user1 name\",\n    \"email\": \"user1name@example.com\",\n    \"password\": \"user1password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/auth/register",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user login",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"user1name@example.com\",\n    \"password\": \"user1password\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "budget",
+							"item": [
+								{
+									"name": "Create a New Budget",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"category\": \"Food\",\n    \"limitAmount\": 1000,\n    \"month\": 3,\n    \"year\": 2025\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/budgets",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"budgets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Budgets (For Logged-in User)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/budgets",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"budgets"
+											]
+										},
+										"description": "(For Logged-in User)"
+									},
+									"response": []
+								},
+								{
+									"name": "Update a Budget",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"limitAmount\": 2000\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/budgets/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"budgets",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "67de4e86aad828433dd5836b"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a Budget",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/budgets/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"budgets",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "67de4d053ce78a6c7937bb7a"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "transaction",
+							"item": [
+								{
+									"name": "create a new transaction",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"dal\",\n    \"amount\": 55,\n    \"type\": \"expense\",\n    \"category\": \"Food\",\n    \"date\": \"2025-03-22\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/transactions",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"transactions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Transactions",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/transactions",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"transactions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a Transaction",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"description\": \"milk shake (oreo shake)\",\n    \"amount\": 60\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/transactions/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"transactions",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "67de4ed8aad828433dd58377"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a Transaction",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/transactions/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"transactions",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "67de4f32aad828433dd58392"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "bearer_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZGQzNTNmMmU1NjIyY2IzNDM3N2JhNiIsImlhdCI6MTc0MjU1MDMzNSwiZXhwIjoxNzQzMTU1MTM1fQ.JHXmRxp_OKJg3mTn9DPPvDwOp-ogqPBud2KZ1zkdpQY",
+			"type": "default"
+		}
+	]
+}

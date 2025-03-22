@@ -1,6 +1,6 @@
 ## [LIVE](https://finance-tracker-backend-beta.vercel.app/)
 
-### 1. Project SETUP
+### 1. Project SETUP (Local)
 
 - create `.env` file in project root
 
@@ -22,4 +22,7 @@
 
 [POSTMAN COLLECTION](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/FinTrackerApp.postman_collection.json)
 
-[POSTMAN ENVIRONMENT](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/Local.postman_environment.json)
+#### POSTMAN ENV Variable
+[Local](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/Local.postman_environment.json)
+
+[PRODUCTION](https://github.com/Priyansusahoo/finance-tracker-backend/blob/master/production.postman_environment.json)

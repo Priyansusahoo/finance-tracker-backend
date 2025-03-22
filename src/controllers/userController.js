@@ -1,8 +1,3 @@
-// @desc   Get user profile
-// @route  GET /api/users/profile
-// @access Private (Requires authentication)
-
-
 const getUserProfile = (req, res) => {
     res.json({
         id: req.user._id,

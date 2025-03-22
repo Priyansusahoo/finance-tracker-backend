@@ -1,8 +1,6 @@
 const Transaction = require("../models/Transaction");
+const Budget = require("../models/Budget");
 
-// @desc   Create a new transaction
-// @route  POST /api/transactions
-// @access Private
 const createTransaction = async (req, res) => {
     try {
         const { description, amount, type, category, date } = req.body;
@@ -20,7 +18,6 @@ const createTransaction = async (req, res) => {
             date: date || new Date(),
         });
 
-        // Update current spending if it's an expense
         if (type === "expense") {
             const currentMonth = new Date(date).getMonth() + 1;
             const currentYear = new Date(date).getFullYear();
@@ -50,10 +47,6 @@ const createTransaction = async (req, res) => {
 };
 
 
-
-// @desc   Get all transactions for a user
-// @route  GET /api/transactions
-// @access Private
 const getTransactions = async (req, res) => {
     try {
         const transactions = await Transaction.find({ user: req.user._id }).sort({ date: -1 });
@@ -63,24 +56,19 @@ const getTransactions = async (req, res) => {
     }
 };
 
-// @desc   Update a transaction
-// @route  PUT /api/transactions/:id
-// @access Private
+
 const updateTransaction = async (req, res) => {
     try {
         const transaction = await Transaction.findById(req.params.id);
 
-        // Check if transaction exists
         if (!transaction) {
             return res.status(404).json({ message: "Transaction not found" });
         }
 
-        // Ensure user owns the transaction
         if (transaction.user.toString() !== req.user._id.toString()) {
             return res.status(401).json({ message: "Not authorized" });
         }
 
-        // Update fields
         transaction.description = req.body.description || transaction.description;
         transaction.amount = req.body.amount || transaction.amount;
         transaction.type = req.body.type || transaction.type;
@@ -94,19 +82,15 @@ const updateTransaction = async (req, res) => {
     }
 };
 
-// @desc   Delete a transaction
-// @route  DELETE /api/transactions/:id
-// @access Private
+
 const deleteTransaction = async (req, res) => {
     try {
         const transaction = await Transaction.findById(req.params.id);
 
-        // Check if transaction exists
         if (!transaction) {
             return res.status(404).json({ message: "Transaction not found" });
         }
 
-        // Ensure user owns the transaction
         if (transaction.user.toString() !== req.user._id.toString()) {
             return res.status(401).json({ message: "Not authorized" });
         }

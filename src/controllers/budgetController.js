@@ -1,19 +1,14 @@
 const Budget = require("../models/Budget");
 const Transaction = require("../models/Transaction");
 
-// @desc   Set a budget for a category
-// @route  POST /api/budget
-// @access Private
 const setBudget = async (req, res) => {
     try {
         const { category, limitAmount, month, year } = req.body;
 
-        // Validate input
         if (!category || !limitAmount || !month || !year) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
-        // Check if budget already exists
         const existingBudget = await Budget.findOne({
             user: req.user._id,
             category,
@@ -25,7 +20,6 @@ const setBudget = async (req, res) => {
             return res.status(400).json({ message: "Budget already set for this category" });
         }
 
-        // Create new budget
         const budget = await Budget.create({
             user: req.user._id,
             category,
@@ -40,9 +34,6 @@ const setBudget = async (req, res) => {
     }
 };
 
-// @desc   Get user's budgets
-// @route  GET /api/budget
-// @access Private
 const getBudgets = async (req, res) => {
     try {
         const budgets = await Budget.find({ user: req.user._id });
@@ -52,9 +43,6 @@ const getBudgets = async (req, res) => {
     }
 };
 
-// @desc   Update a budget
-// @route  PUT /api/budget/:id
-// @access Private
 const updateBudget = async (req, res) => {
     try {
         const budget = await Budget.findById(req.params.id);
@@ -76,9 +64,6 @@ const updateBudget = async (req, res) => {
     }
 };
 
-// @desc   Delete a budget
-// @route  DELETE /api/budget/:id
-// @access Private
 const deleteBudget = async (req, res) => {
     try {
         const budget = await Budget.findById(req.params.id);

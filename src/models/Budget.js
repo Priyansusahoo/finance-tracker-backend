@@ -17,7 +17,7 @@ const budgetSchema = new mongoose.Schema(
         },
         currentSpending: {
             type: Number,
-            default: 0,  // Starts at 0, increases with expenses
+            default: 0,
         },
         month: {
             type: Number,

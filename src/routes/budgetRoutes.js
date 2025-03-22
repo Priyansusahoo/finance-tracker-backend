@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/", protect, setBudget);
 router.get("/", protect, getBudgets);
-router.put("/:id", protect, updateBudget);
+router.patch("/:id", protect, updateBudget);
 router.delete("/:id", protect, deleteBudget);
 
 module.exports = router;

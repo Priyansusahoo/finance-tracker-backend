@@ -1,4 +1,4 @@
-## [LIVE]() // Link will be updated soon
+## [LIVE](https://finance-tracker-backend-beta.vercel.app/)
 
 ### 1. Project SETUP
 

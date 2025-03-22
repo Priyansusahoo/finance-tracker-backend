@@ -55,66 +55,6 @@
 										}
 									},
 									"response": []
-								},
-								{
-									"name": "user register",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"user1 name\",\n    \"email\": \"user1name@example.com\",\n    \"password\": \"user1password\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/auth/register",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"auth",
-												"register"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "user login",
-									"protocolProfileBehavior": {
-										"disabledSystemHeaders": {}
-									},
-									"request": {
-										"auth": {
-											"type": "noauth"
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"user1name@example.com\",\n    \"password\": \"user1password\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/auth/login",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"auth",
-												"login"
-											]
-										}
-									},
-									"response": []
 								}
 							]
 						},
@@ -221,7 +161,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "67de4e86aad828433dd5836b"
+													"value": "67de679be4d84e639cc50060"
 												}
 											]
 										}
@@ -255,7 +195,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "67de4d053ce78a6c7937bb7a"
+													"value": "67de679be4d84e639cc50060"
 												}
 											]
 										}
@@ -366,7 +306,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "67de4ed8aad828433dd58377"
+													"value": "67de67d6e4d84e639cc50071"
 												}
 											]
 										}
@@ -410,6 +350,69 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "user register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"user3 name\",\n    \"email\": \"user3name@example.com\",\n    \"password\": \"user3password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user1name@example.com\",\n    \"password\": \"user1password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

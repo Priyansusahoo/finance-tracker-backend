@@ -17,6 +17,7 @@
 - In Terminal
   - `cd finance-tracker-backend`
   - `npm install`
+  - `npm run dev`
 
 ### 2. IMPORT this Collection in Postman:
 
